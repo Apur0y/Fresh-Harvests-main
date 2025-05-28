@@ -72,47 +72,22 @@ export default function Products() {
       </div>
 
       <div className="flex justify-center items-center gap-4">
-        <button
-          className={`${
-            isActive == "all" ? "bg-main text-white" : " border-2 text-gray-600"
-          } py-3 px-6 rounded-lg `}
-          onClick={() => handleCategoryChange("all")}
-        >
-          All
-        </button>
-        <button
-          className={`${
-            isActive == "fruit"
-              ? "bg-main text-white"
-              : " border-2 text-gray-600"
-          } py-3 px-6 rounded-lg `}
-          onClick={() => handleCategoryChange("fruit")}
-        >
-          Fruits
-        </button>
-        <button
-          className={`${
-            isActive == "vegetable"
-              ? "bg-main text-white"
-              : " border-2 text-gray-600"
-          } py-3 px-6 rounded-lg `}
-          onClick={() => handleCategoryChange("vegetable")}
-        >
-          Vegetables
-        </button>
-        <button
-          className={`${
-            isActive == "salad"
-              ? "bg-main text-white"
-              : " border-2 text-gray-600"
-          } py-3 px-6 rounded-lg `}
-          onClick={() => handleCategoryChange("salad")}
-        >
-          Salad
-        </button>
+        {["all", "fruit", "vegetable", "salad"].map((category) => (
+          <button
+            key={category}
+            className={`transition-all duration-200 ease-in-out ${
+              isActive === category
+                ? "bg-main text-white scale-105 shadow-md"
+                : "border-2 border-gray-200 text-gray-600 hover:bg-gray-50"
+            } py-1 md:py-3 px-4 md:px-6 rounded-lg capitalize`}
+            onClick={() => handleCategoryChange(category)}
+          >
+            {category === "all" ? "All" : category}
+          </button>
+        ))}
       </div>
 
-      <div>
+      <div className="flex flex-wrap justify-center gap-5">
         {filtered.map((product) => (
           <ProductCard key={product.id} product={product}></ProductCard>
         ))}
