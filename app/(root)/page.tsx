@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div>
+    <div className='text-gray-900 '>
       <Banner></Banner>
     </div>
   )

@@ -28,13 +28,23 @@ body {
   color:#749B3F
 }
 
+.code-color{
+  background-color: #176D38;
+}
+
+.button-main{
+    background-color: #FF6A1A;
+    padding: 12px 32px 12px 32px;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
 .intro{
     color:#749B3F;
-    padding: 6px 8px 6px 8px;
+    padding: 6px 15px 6px 15px;
     border-radius: 8px;
      background-color: color-mix(in oklab, #c3ff70 30%, transparent);
     font-weight: 500;
-
-
 }
 
