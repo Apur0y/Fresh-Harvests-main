@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Banner() {
   return (
-    <div className="flex justify-around  w-11/12 mx-auto">
+    <div className="flex justify-around  pt-24 bg-gray-100">
       {/* left div site */}
       <div className="flex flex-col gap-4 justify-center text-left">
         <div className="flex  flex-col gap-5">
