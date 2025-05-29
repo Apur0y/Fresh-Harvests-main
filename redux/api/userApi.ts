@@ -47,7 +47,6 @@ export const userApi = baseApi.injectEndpoints({
 
 export const {
   useGetSingleUserQuery,
-  useGetUserWithProfileQuery,
   useGetAllUserQuery,
   useUpdateUserProfileMutation,
   useUpdateUserStatusMutation,
