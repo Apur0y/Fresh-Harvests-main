@@ -15,6 +15,7 @@ export default function Home() {
       <SpecialOffer></SpecialOffer>
       <Testimonial></Testimonial>
       <Blog></Blog>
+      
     </div>
   )
 }

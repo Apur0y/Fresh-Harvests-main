@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { ReduxProvider } from "@/components/ReduxProvider";
+import Footer from "@/sections/Footer";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import { Toaster } from "react-hot-toast";
@@ -28,6 +29,7 @@ export default function RootLayout({
     <div >
   {children}
     </div>
+    <Footer></Footer>
 
     </ReduxProvider>
         <Toaster />
