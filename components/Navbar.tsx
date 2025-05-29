@@ -1,16 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
 import { TbCloverFilled } from "react-icons/tb";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Navbar() {
   const [view, setView] = useState(true);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // If scrolled down 50px or more, set scrolled to true
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="navbar z-50 md:px-14 bg-transparent fixed">
+    <div className={`navbar z-50 fixed w-full md:px-14 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,7 +52,7 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a href="#">Home</a>
+              <Link href='/'>Home</Link>
             </li>
             <li>
               <a href="#shop">Shop</a>
@@ -48,15 +65,15 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-gray-800">
+        <Link href='/' className="btn btn-ghost text-xl text-gray-800">
           <TbCloverFilled className="main-color size-7" />
           Fresh Harvests
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-6 px-1 text-gray-600">
            <li>
-              <a href="">Home</a>
+                <Link href='/'>Home</Link>
             </li>
             <li>
               <a href="#shop">Shop</a>
@@ -92,7 +109,7 @@ export default function Navbar() {
               modal.showModal();
             }
           }}
-          className="btn"
+          className="btn bg-transparent text-gray-800"
         >
           Sign in
         </button>

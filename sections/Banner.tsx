@@ -4,9 +4,9 @@ import React from "react";
 
 export default function Banner() {
   return (
-    <div className=" flex justify-around px-5  pt-24 bg-gray-100">
+    <div className=" flex  md:justify-around px-5  pt-24 bg-gray-100">
       {/* left div site */}
-      <div className="flex flex-col gap-4 justify-center text-left">
+      <div className="flex flex-col gap-4 z-10 justify-center text-left">
         <div className="flex  flex-col gap-5">
           <span className="intro w-52 md:w-64">Welcome to Fresh Harvest</span>
 
@@ -18,35 +18,26 @@ export default function Banner() {
             freshest <br /> and most flawaful fruits and vegetables
           </p>
 
-          <button className="button-main">Shop Now</button>
+          <button className="button-main w-36">Shop Now</button>
         </div>
 
-        {/* salad patte */}
-        <div className="bg-gray-200 p-4 rounded-lg flex">
-          <div>
-            <p className="font-semibold">Special Offer</p>
-            <h2>Fresh Salad</h2>
-            <h3>
-              <span>Up to</span> <span>70%</span> <span>off</span>
-            </h3>
-            <p className="code-color text-white p-1 rounded-lg">
-              {" "}
-              <span>CODE:</span> <span className="text-amber-400">FRESH25</span>
-            </p>
-          </div>
-
-          <div>
-            <img src="salad.jpg" alt="" height={149} width={146} />
-          </div>
+        <div className="flex md:justify-end z-0">
+          <Image src='/arrow.jpg' alt="salad" height={10} width={120} className="hidden md:flex"></Image>
+          <Image src='/Special-offer.png' alt="salad" height={157} width={331} className="w-48 h-24 md:w-[331] md:h-[157]"></Image>
         </div>
 
+     
+     <div className="mt-24 md:mt-0">
   <Download></Download>
+     </div>
+
+
       </div>
 
       {/* right side div */}
-      <div className="hidden md:flex">
-        <img src="./as.jpg" alt="" />
-        {/* <Image src="/as.jpg" alt="little-girl" height={473} width={434} ></Image> */}
+      <div className="absolute left-1/2 md:left-0 overflow-auto top-1/2  md:relative">
+        
+        <Image src="/as.jpg" alt="little-girl" height={473} width={434} className=" h-[473px] w-[500px] md:h-full md:w-full"></Image>
       </div>
     </div>
   );

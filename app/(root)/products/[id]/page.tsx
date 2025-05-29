@@ -1,4 +1,5 @@
 "use client";
+import { useGetCategoryByIdQuery } from "@/redux/api/categoryApi";
 import { useGetProductByIdQuery } from "@/redux/api/productApi";
 import { Product } from "@/sections/Products";
 import RelatedProducts from "@/sections/RelatedProducts";
@@ -6,8 +7,10 @@ import Review from "@/sections/Review";
 import {  Rating } from "@mui/material";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { RingLoader } from "react-spinners";
 
 interface SingleProductProps {
   params: { id: string };
@@ -16,8 +19,13 @@ interface SingleProductProps {
 
 export default function SingleProduct({ params }: SingleProductProps) {
   const [product, setProduct] = useState<Product | null>(null);
+  const [category,setCategory]=useState("Fruit")
+    const { id } = useParams()
 
-  const { data: productData, isLoading } = useGetProductByIdQuery(params?.id);
+  const { data: productData, isLoading } = useGetProductByIdQuery(id);
+   const { data } = useGetCategoryByIdQuery(product?.categoryId);
+
+
 
   const [quantity,setQuantity]=useState(1);
 
@@ -30,16 +38,20 @@ export default function SingleProduct({ params }: SingleProductProps) {
   }
 
   useEffect(() => {
-    if (productData) {
+    if (productData?.data) {
       setProduct(productData.data);
     }
-  }, [productData]);
+    if(data?.data){
+      
+     setCategory(data.data);
+    }
+  }, [productData,data]);
 
   if (isLoading) {
-    const l = "Loading";
-    return l;
+     <RingLoader />
+        
   }
-  console.log(product);
+
   return (
 
     <div>
@@ -54,7 +66,7 @@ export default function SingleProduct({ params }: SingleProductProps) {
       </div>
 
       <div className="md:w-1/2 flex flex-col gap-1">
-        <p className="intro w-20">Fruits</p>
+        <p className="intro w-20">{category?.categoryName}</p>
         <h1 className="text-start heading ">{product?.productName}</h1>
         <p>
           <Rating
