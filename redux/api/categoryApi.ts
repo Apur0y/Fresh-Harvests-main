@@ -17,25 +17,35 @@ export const categoryApi = baseApi.injectEndpoints({
  
     }),
         createCategory: build.mutation({
-      query: (data) => ({
-        url: "/booking-applications",
+      query: (categoryData) => ({
+        url: "api/v1/category",
         method: "POST",
-        data: data,
+        data: categoryData,
       })
     }),
 
-    
-
-        
-
-
+     updateCategory: build.mutation({
+      query: ({ categoryId, categoryData }) => ({
+        url: `api/v1/category/${categoryId}`,
+        method: "PUT",
+        data: categoryData,
+      })
     }),
 
-    
-
+    deleteCategory: build.mutation({
+      query: (categoryId) => ({
+        url: `api/v1/category/${categoryId}`,
+        method: "DELETE",
+      })
+    })
+  })
 })
 
 
 export const {
-    useGetCategoryQuery
+    useGetCategoryQuery,
+    useGetCategoryByIdQuery,
+    useCreateCategoryMutation,
+    useDeleteCategoryMutation,
+    useUpdateCategoryMutation
 } =categoryApi
