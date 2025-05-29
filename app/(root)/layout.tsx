@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import { ReduxProvider } from "@/components/ReduxProvider";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({
     </div>
 
     </ReduxProvider>
-  
+        <Toaster />
       
 </main>
   );
