@@ -1,6 +1,8 @@
+'use client'
 import { Carrot, Leaf, LucideMove } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import Login from "./Login";
 
 export default function Navbar() {
   return (
@@ -42,7 +44,9 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-gray-800"><Leaf></Leaf>Fresh Harvests</a>
+        <a className="btn btn-ghost text-xl text-gray-800">
+          <Leaf></Leaf>Fresh Harvests
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-6 px-1 text-gray-600">
@@ -61,9 +65,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-
-
-
       <div className="navbar-end text-black gap-6">
         <div className="flex">
           <LucideMove></LucideMove>
@@ -74,8 +75,35 @@ export default function Navbar() {
           <Carrot></Carrot>
           <p>Cart</p>
         </div>
-        <Link href="/login">Sign in</Link>
+        <button
+          onClick={() => {
+            const modal = document.getElementById("my_modal_3") as HTMLDialogElement | null;
+            if (modal) {
+              modal.showModal();
+            }
+          }}
+          className="btn"
+        >
+          Signin
+        </button>
+        
       </div>
+
+      {/* You can open the modal using document.getElementById('ID').showModal() method */}
+   
+      <dialog id="my_modal_3" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+
+          <Login></Login>
+          
+        </div>
+      </dialog>
     </div>
   );
 }
