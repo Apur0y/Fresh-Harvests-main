@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { ReduxProvider } from "@/components/ReduxProvider";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 
@@ -20,11 +21,15 @@ export default function RootLayout({
 }>) {
   return (
    <main className={`${rubik.variable} font-sans`}>
-    <Navbar></Navbar>
+    <ReduxProvider>
+  <Navbar></Navbar>
 
     <div >
   {children}
     </div>
+
+    </ReduxProvider>
+  
       
 </main>
   );

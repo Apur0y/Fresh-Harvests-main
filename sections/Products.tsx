@@ -1,5 +1,6 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
+import { useGetAllUserQuery } from "@/redux/api/flatApi";
 import React, { useEffect, useState } from "react";
 
 type Product = {
@@ -14,6 +15,9 @@ export default function Products() {
   const [isActive, setIsActive] = useState<string>("all");
   const [products, setProducts] = useState<Product[]>([]);
   const [filtered, setFiltered] = useState<Product[]>([]);
+
+  const {data,isLoading}=useGetAllUserQuery({})
+  console.log(data);
 
   const mockProducts: Product[] = [
     {
