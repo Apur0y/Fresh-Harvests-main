@@ -2,10 +2,11 @@ import { baseApi } from "./baseApi";
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    addUser: build.mutation({
-      query: () => ({
+    loginUser: build.mutation({
+      query: (loginData) => ({
         url: "api/v1/auth/login",
         method: "POST",
+        data:loginData
       }),
       
     }),
@@ -19,8 +20,8 @@ export const authApi = baseApi.injectEndpoints({
     }),
      changePassword: build.mutation({
       query: (passwordData) => ({
-        url: `/change-password`,
-        method: "POST",
+        url: `api/v1/auth/change-password`,
+        method: "PUT",
         data: passwordData,
       }),
     
@@ -30,6 +31,6 @@ export const authApi = baseApi.injectEndpoints({
 
 export const {
     useGetUserProfileQuery,
-    useAddUserMutation,
+    useLoginUserMutation,
     useChangePasswordMutation
 } =authApi;

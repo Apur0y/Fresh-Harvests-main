@@ -10,10 +10,11 @@ export const userApi = baseApi.injectEndpoints({
       }),
       
     }),
-    getSingleUser: build.query({
-      query: () => ({
-        url: "/user",
-        method: "GET",
+    registerUser: build.mutation({
+      query: (userData) => ({
+        url: "/api/v1/users/register",
+        method: "POST",
+        data: userData
       }),
       
     }),
@@ -26,29 +27,21 @@ export const userApi = baseApi.injectEndpoints({
       }),
     
     }),
-    UpdateUserStatus: build.mutation({
+    UpdateUserById: build.mutation({
       query: ({ userId, updatedData }) => ({
         url: `/api/v1/users/${userId}`,
         method: "PUT",
         data: updatedData,
       }),
     
-    }),
-    changePassword: build.mutation({
-      query: (passwordData) => ({
-        url: `/change-password`,
-        method: "POST",
-        data: passwordData,
-      }),
-    
-    }),
+    })
+   
   }),
 });
 
 export const {
-  useGetSingleUserQuery,
   useGetAllUserQuery,
+  useRegisterUserMutation,
   useUpdateUserProfileMutation,
-  useUpdateUserStatusMutation,
-  useChangePasswordMutation,
+ useUpdateUserByIdMutation,
 } = userApi;
