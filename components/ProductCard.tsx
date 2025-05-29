@@ -21,8 +21,8 @@ export default function ProductCard({ product }: { product: Product }) {
         <p>{product.price}</p>
         </div>
 
-        <Link href={`/products/${product.id}`}>
-                <button className='py-2 border-2 border-gray-200 rounded-lg hover:bg-amber-500'>Add to cart</button>
+        <Link className='py-2 border-2 flex justify-center items-center transition-all duration-300 border-gray-200 rounded-lg hover:bg-amber-500' href={`/products/${product.id}`}>
+                <button className=''>Add to cart</button>
 
         </Link>
 
