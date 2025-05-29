@@ -99,7 +99,7 @@ const handleCategoryChange=(p:string,id:string)=>{
               isActive === cat.categoryName
                 ? "bg-main text-white scale-105 shadow-md"
                 : "border-2 border-gray-200 text-gray-600 hover:bg-gray-50"
-            }  duration-200 ease-in-out py-1 md:py-3 px-4 md:px-6 rounded-lg capitalize`}
+            }  duration-200 ease-in-out py-1 md:py-3 md:px-4 md:px-6 rounded-lg capitalize`}
             onClick={() => handleCategoryChange(cat.categoryName,cat.id)}
           >
             {cat.categoryName}
