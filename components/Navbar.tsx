@@ -1,5 +1,5 @@
-'use client'
-import Link from "next/link";
+"use client";
+
 import React, { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
@@ -7,8 +7,7 @@ import { TbCloverFilled } from "react-icons/tb";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
 export default function Navbar() {
-
-  const [view,setView] =useState(true)
+  const [view, setView] = useState(true);
 
   return (
     <div className="navbar z-50 md:px-14 bg-transparent fixed">
@@ -36,56 +35,59 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link href="/">Home</Link>
+              <a href="#">Home</a>
             </li>
             <li>
-              <Link href="/shop">Shop</Link>
+              <a href="#shop">Shop</a>
             </li>
             <li>
-              <Link href="/about-us">About Us</Link>
+              <a href="#about-us">About Us</a>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <a href="#blog">Blog</a>
             </li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl text-gray-800">
-         <TbCloverFilled className="main-color size-7" />Fresh Harvests
+          <TbCloverFilled className="main-color size-7" />
+          Fresh Harvests
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-6 px-1 text-gray-600">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/shop">Shop</Link>
-          </li>
-          <li>
-            <Link href="/about-us">About Us</Link>
-          </li>
-          <li>
-            <Link href="/blog">Blog</Link>
-          </li>
+           <li>
+              <a href="">Home</a>
+            </li>
+            <li>
+              <a href="#shop">Shop</a>
+            </li>
+            <li>
+              <a href="#about-us">About Us</a>
+            </li>
+            <li>
+              <a href="#blog">Blog</a>
+            </li>
         </ul>
       </div>
 
       <div className="navbar-end text-black gap-6">
         <div className="hidden md:flex gap-6">
-<div className="flex">
-          <FaHeart className="my-auto mr-1" />
-          <p>Favorite</p>
+          <div className="flex">
+            <FaHeart className="my-auto mr-1" />
+            <p>Favorite</p>
+          </div>
+
+          <div className="flex">
+            <FaShoppingCart className="my-auto mr-1" />
+            <p>Cart</p>
+          </div>
         </div>
 
-        <div className="flex">
-          <FaShoppingCart className="my-auto mr-1" />
-          <p>Cart</p>
-        </div>
-        </div>
-        
         <button
           onClick={() => {
-            const modal = document.getElementById("my_modal_3") as HTMLDialogElement | null;
+            const modal = document.getElementById(
+              "my_modal_3"
+            ) as HTMLDialogElement | null;
             if (modal) {
               modal.showModal();
             }
@@ -94,11 +96,10 @@ export default function Navbar() {
         >
           Sign in
         </button>
-        
       </div>
 
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
-   
+
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box bg-white rounded-md  max-w-sm">
           <form method="dialog">
@@ -107,12 +108,11 @@ export default function Navbar() {
               ✕
             </button>
           </form>
-          {
-            view? (<Login setView={setView}></Login>):(<Register setView={setView}></Register>)
-          }
-
-          
-          
+          {view ? (
+            <Login setView={setView}></Login>
+          ) : (
+            <Register setView={setView}></Register>
+          )}
         </div>
       </dialog>
     </div>

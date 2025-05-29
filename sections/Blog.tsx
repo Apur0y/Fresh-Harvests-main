@@ -26,7 +26,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div id="blog" className="w-11/12 mx-auto">
       <div className="header-align mb-10">
         <p className="intro">Our Blog</p>
         <h1 className="heading">Fresh Harvest Blog</h1>

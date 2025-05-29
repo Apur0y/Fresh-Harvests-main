@@ -70,7 +70,7 @@ const handleCategoryChange=(p:string,id:string)=>{
 }
 
   return (
-    <div>
+    <div id="shop">
       <div className="header-align">
         <p className="intro">Our Products</p>
         <h1 className="heading">Our Fresh Products</h1>
@@ -111,6 +111,10 @@ const handleCategoryChange=(p:string,id:string)=>{
         {filtered.map((product) => (
           <ProductCard key={product.id} product={product}></ProductCard>
         ))}
+      </div>
+      <div className="flex justify-center items-center my-7">
+      <button className="button-main ">See all products </button>
+
       </div>
     </div>
   );

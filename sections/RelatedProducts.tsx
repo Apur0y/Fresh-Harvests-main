@@ -28,14 +28,14 @@ export default function RelatedProducts() {
     
     
   return (
-    <div>
+    <div className='text-gray-900'>
         <div className="header-align">
         <p className="intro">Our Products</p>
         <h1 className="heading">Related Products</h1>
       
       </div>
         <div className="flex flex-wrap justify-center gap-5">
-                {products.map((product) => (
+                {products.slice(0,4).map((product) => (
                   <ProductCard key={product.id} product={product}></ProductCard>
                 ))}
               </div>

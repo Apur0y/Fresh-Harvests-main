@@ -4,11 +4,11 @@ import React from "react";
 
 export default function Banner() {
   return (
-    <div className=" flex justify-around  pt-24 bg-gray-100">
+    <div className=" flex justify-around px-5  pt-24 bg-gray-100">
       {/* left div site */}
       <div className="flex flex-col gap-4 justify-center text-left">
         <div className="flex  flex-col gap-5">
-          <span className="intro ">Welcome to Fresh Harvest</span>
+          <span className="intro w-52 md:w-64">Welcome to Fresh Harvest</span>
 
           <h1 className="text-5xl md:text-7xl text-left font-medium md:font-semibold ">
             Fresh Fruits and <br /> Vegetables
