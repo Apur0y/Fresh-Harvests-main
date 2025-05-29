@@ -32,7 +32,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <div className="w-4/5 mx-auto">
+    <div className="w-4/5 mx-auto z-0">
       <div className="header-align mb-10">
         <p className="intro">Testimonial</p>
         <h1 className="heading">What Our Customers Say</h1>
@@ -45,18 +45,18 @@ export default function Testimonial() {
       <Swiper pagination={true} modules={[Pagination]}>
         {customers.map((customer, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white flex justify-center items-center p-6 rounded-xl h-full">
-              <div className="flex justify-center mb-6 h-md w-md">
+            <div className="bg-white flex flex-col lg:flex-row justify-center items-center p-6 rounded-xl h-full">
+              <div className="flex justify-center mb-6  h-md w-md">
                 <Image
                   src={customer.image}
                   alt={customer.name}
                   width={120}
                   height={120}
-                  className="rounded-t-full rounded-b-full object-cover w-72 h-96"
+                  className="rounded-t-full rounded-b-full object-cover w-56 h-80 md:w-72 md:h-96"
                 />
               </div>
 
-              <div className="flex-1  bg-gray-100 p-5 rounded-2xl w-60">
+              <div className="flex-1  bg-gray-100 p-5 rounded-2xl w-xs md:w-sm">
                 <p className="text-gray-600 mb-6 italic">&quot;{customer.review}&quot;</p>
                 <div className="text-center">
                   <h3 className="font-semibold text-lg text-start">{customer.name}- <span className="font-normal text-base">{customer.profession}</span></h3>

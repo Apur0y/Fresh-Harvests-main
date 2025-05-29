@@ -14,9 +14,9 @@ interface Blog {
 export default function BlogCard({blog}:{blog:Blog}) {
 
   return (
-    <div className='w-xs md:w-sm'>
-        <div className='  rounded-2xl'>
-            <Image src={blog.image} alt={blog.title} height={500} width={500} className='rounded-xl h-64 w-xs md:w-sm'></Image>
+    <div className='w-343 md:w-sm'>
+        <div className=' rounded-2xl'>
+            <Image src={blog.image} alt={blog.title} height={500} width={500} className='rounded-xl h-64  md:w-sm'></Image>
 
         </div>
 

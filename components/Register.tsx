@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 import { useRegisterUserMutation } from '@/redux/api/userApi';
 import toast from 'react-hot-toast';
-import Link from 'next/link';
+
 
 interface LoginProps {
   setView: React.Dispatch<React.SetStateAction<boolean>>;

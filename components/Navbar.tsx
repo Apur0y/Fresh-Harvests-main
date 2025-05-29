@@ -11,7 +11,7 @@ export default function Navbar() {
   const [view,setView] =useState(true)
 
   return (
-    <div className="navbar md:px-14 bg-transparent fixed">
+    <div className="navbar z-50 md:px-14 bg-transparent fixed">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
