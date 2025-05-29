@@ -37,7 +37,9 @@ export default function SpecialOffer() {
   }, []);
 
   return (
-    <div className="relative h-[640px] w-11/12 mx-auto  bg-gray-200">
+
+    <div className=" bg-gray-200">
+<div className="relative h-[640px] w-11/12 mx-auto ">
       {/* <Image
     src="/offer-banner.jpg"
     alt="Offer banner"
@@ -48,10 +50,10 @@ export default function SpecialOffer() {
    
   />
          */}
-      <div className="absolute top-1/5 z-10 p-8 flex flex-col justify-center gap-5">
+      <div className="absolute top-1/5 z-10 p-8 flex flex-col justify-center items-center md:items-start gap-5">
         <p className="intro ">Special Offer</p>
-        <h1 className="text-7xl font-bold">Seasonal Fruit Bundle</h1>
-        <h2 className="text-5xl font-semibold">
+        <h1 className="text-5xl md:text-7xl font-bold">Seasonal Fruit Bundle</h1>
+        <h2 className="text-2xl md:text-5xl font-semibold">
           Discount up to <span className="second-color">80% OFF</span>
         </h2>
 
@@ -70,11 +72,16 @@ export default function SpecialOffer() {
         <TimeCard value={timeLeft.seconds} label="Seconds" />
       </div>
 
+       <p className="code-color text-2xl md:text-3xl  text-center font-semibold text-white p-1 md:p-2 rounded-full md:w-xs w-[242px]">
+              {" "}
+              <span>CODE:</span> <span className="text-amber-400">FRESH25</span>
+            </p>
+
 
 
       </div>
 
-      <div className="absolute left-1/2 top-1/6">
+      <div className="absolute left-1/2 top-1/6 hidden md:flex">
         <Image
           src="/fruits.png"
           alt="Offer banner"
@@ -83,6 +90,8 @@ export default function SpecialOffer() {
         />
       </div>
     </div>
+    </div>
+    
   );
 }
 

@@ -1,15 +1,16 @@
 import Download from "@/components/Download";
+import Image from "next/image";
 import React from "react";
 
 export default function Banner() {
   return (
-    <div className="flex justify-around  pt-24 bg-gray-100">
+    <div className=" flex justify-around  pt-24 bg-gray-100">
       {/* left div site */}
       <div className="flex flex-col gap-4 justify-center text-left">
         <div className="flex  flex-col gap-5">
           <span className="intro ">Welcome to Fresh Harvest</span>
 
-          <h1 className="text-7xl text-left font-semibold ">
+          <h1 className="text-5xl md:text-7xl text-left font-medium md:font-semibold ">
             Fresh Fruits and <br /> Vegetables
           </h1>
           <p className="text-gray-800 text-sm">
@@ -43,8 +44,9 @@ export default function Banner() {
       </div>
 
       {/* right side div */}
-      <div>
+      <div className="hidden md:flex">
         <img src="./as.jpg" alt="" />
+        {/* <Image src="/as.jpg" alt="little-girl" height={473} width={434} ></Image> */}
       </div>
     </div>
   );
