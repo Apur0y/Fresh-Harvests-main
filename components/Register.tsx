@@ -18,7 +18,7 @@ export default function Register({ setView }: LoginProps) {
     email: '',
     password: '',
   });
-  const [register, { isLoading }] = useRegisterUserMutation();
+  const [register] = useRegisterUserMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,8 +39,13 @@ export default function Register({ setView }: LoginProps) {
       } else {
         toast.error(response.message || 'Registration failed');
       }
-    } catch (err: any) {
-      toast.error(err.data?.message || err.message || 'Registration failed');
+    } catch (err: unknown) {
+      if (typeof err === 'object' && err !== null) {
+        const errorObj = err as { data?: { message?: string }; message?: string };
+        toast.error(errorObj.data?.message || errorObj.message || 'Registration failed');
+      } else {
+        toast.error('Registration failed');
+      }
     }
   };
 
