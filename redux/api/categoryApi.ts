@@ -9,6 +9,22 @@ export const categoryApi = baseApi.injectEndpoints({
                 method: "GET"
             })
         }),
+       getCategoryById: build.query({
+           query: (id) => ({
+        url: `api/v1/category/${id}`,
+        method: "GET",
+      }),
+ 
+    }),
+        createCategory: build.mutation({
+      query: (data) => ({
+        url: "/booking-applications",
+        method: "POST",
+        data: data,
+      })
+    }),
+
+    
 
         
 

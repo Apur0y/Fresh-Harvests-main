@@ -12,7 +12,7 @@ export const authApi = baseApi.injectEndpoints({
 
     getUserProfile: build.query({
       query: () => ({
-        url: "/api/v1/auth/profile",
+        url: "api/v1/auth/profile",
         method: "GET",
       }),
       
