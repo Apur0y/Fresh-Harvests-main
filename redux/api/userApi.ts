@@ -12,7 +12,7 @@ export const userApi = baseApi.injectEndpoints({
     }),
     registerUser: build.mutation({
       query: (userData) => ({
-        url: "/api/v1/users/register",
+        url: "api/v1/users/register",
         method: "POST",
         data: userData
       }),
@@ -21,7 +21,7 @@ export const userApi = baseApi.injectEndpoints({
 
     UpdateUserProfile: build.mutation({
       query: (userData) => ({
-        url: "/api/v1/users/profile",
+        url: "api/v1/users/profile",
         method: "PUT",
         data: userData,
       }),
@@ -29,7 +29,7 @@ export const userApi = baseApi.injectEndpoints({
     }),
     UpdateUserById: build.mutation({
       query: ({ userId, updatedData }) => ({
-        url: `/api/v1/users/${userId}`,
+        url: `api/v1/users/${userId}`,
         method: "PUT",
         data: updatedData,
       }),

@@ -4,6 +4,8 @@ import { FcGoogle } from 'react-icons/fc';
 
 import { useRegisterUserMutation } from '@/redux/api/userApi';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+
 
 
 interface LoginProps {
@@ -13,11 +15,13 @@ interface LoginProps {
 
 
 export default function Register({ setView }: LoginProps) {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-  });
+
+  const router=useRouter();
+    const [userData, setFormData] = useState({
+      email: '',
+      fullName: '',
+      password: '',
+    });
   const [register] = useRegisterUserMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,10 +34,14 @@ export default function Register({ setView }: LoginProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(userData);
     try {
-      const response = await register(formData).unwrap();
+      const response = await register(userData).unwrap();
+
+      
       
       if (response.success) {
+        router.push("/")
         toast.success(response.message || 'Registration successful!');
         // Redirect to login or dashboard
       } else {
