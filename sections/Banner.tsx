@@ -30,7 +30,7 @@ export default function Banner() {
           <button className="button-main w-36">Shop Now</button>
         </div>
 
-        <div className="flex md:justify-end z-0">
+        <div className="flex md:justify-end z-0 ">
           <Image src='/arrow.jpg' alt="salad" height={10} width={120} className="hidden md:flex"></Image>
           <Image src='/Special-offer.png' alt="salad" height={157} width={331} className="w-48 h-24 md:w-[331] md:h-[157]"></Image>
         </div>
@@ -44,7 +44,7 @@ export default function Banner() {
       </div>
 
       {/* right side div */}
-      <div className="absolute  left-1/2 md:left-0 overflow-auto top-4/6 sm:top-1/6 md:top-1/2   md:relative">
+      <div className="absolute  left-1/2 md:left-0 overflow-auto top-3/6 sm:top-1/6 md:top-1/2   md:relative">
        
         <Image src="/as.jpg" alt="little-girl" height={473} width={434} className="  w-[800px] md:h-full md:w-full"></Image>
       </div>
