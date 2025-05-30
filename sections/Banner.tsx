@@ -5,6 +5,15 @@ import React from "react";
 export default function Banner() {
   return (
     <div className=" flex  md:justify-around px-5  pt-24 bg-gray-100">
+        <div className='absolute  right-20 top-20 md:top-50 md:-left-10 '>
+          <Image
+                  src={ "/leaf.png"}
+                  alt={"Product image"}
+                  height={100}
+                  width={100}
+                  className=''
+                />
+            </div>
       {/* left div site */}
       <div className="flex flex-col gap-4 z-10 justify-center text-left">
         <div className="flex  flex-col gap-5">
@@ -27,7 +36,7 @@ export default function Banner() {
         </div>
 
      
-     <div className="mt-24 md:mt-0">
+     <div className=" md:mt-0">
   <Download></Download>
      </div>
 
@@ -35,9 +44,9 @@ export default function Banner() {
       </div>
 
       {/* right side div */}
-      <div className="absolute left-1/2 md:left-0 overflow-auto top-1/2  md:relative">
-        
-        <Image src="/as.jpg" alt="little-girl" height={473} width={434} className=" h-[473px] w-[500px] md:h-full md:w-full"></Image>
+      <div className="absolute  left-1/2 md:left-0 overflow-auto top-4/6 sm:top-1/6 md:top-1/2   md:relative">
+       
+        <Image src="/as.jpg" alt="little-girl" height={473} width={434} className="  w-[800px] md:h-full md:w-full"></Image>
       </div>
     </div>
   );

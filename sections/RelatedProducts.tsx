@@ -5,7 +5,11 @@ import { Product } from './Products';
 import ProductCard from '@/components/ProductCard';
 
 
-export default function RelatedProducts() {
+interface RelatedProductsProps {
+  category: string;
+}
+
+export default function RelatedProducts({ category }: RelatedProductsProps) {
       const [products, setProducts] = useState<Product[]>([]);
      
     
@@ -17,7 +21,8 @@ export default function RelatedProducts() {
  
     
         if (pro?.data) {
-          setProducts(pro.data); 
+
+          setProducts(pro?.data?.filter((p: Product) => p.categoryId == category)); 
         }
     
       }, [ pro]);

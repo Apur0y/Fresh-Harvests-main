@@ -65,7 +65,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <Link href='/' className="btn btn-ghost text-xl text-gray-800">
+        <Link href='/' className="btn bg-transparent border-none shadow-none text-xl text-gray-800">
           <TbCloverFilled className="main-color size-7" />
           Fresh Harvests
         </Link>

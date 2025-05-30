@@ -64,6 +64,7 @@ export default function Products() {
 
   return (
     <div id="shop" className="w-11/12 mx-auto mt-24 md:mt-0">
+      
       <div className="header-align">
         <p className="intro">Our Products</p>
         <h1 className="heading">Our Fresh Products</h1>
@@ -102,7 +103,7 @@ export default function Products() {
 
       <div className="flex flex-wrap justify-center gap-5">
         {filtered.length > 0 ? (
-          filtered.map((product) => (
+          filtered.slice(0,8).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))
         ) : (
