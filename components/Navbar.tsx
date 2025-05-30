@@ -14,13 +14,14 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If scrolled down 50px or more, set scrolled to true
+    
       setScrolled(window.scrollY > 50);
     };
 
+
+    
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup listener on component unmount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

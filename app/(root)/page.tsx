@@ -1,6 +1,7 @@
+
 import About from '@/sections/About'
-import Banner from '@/sections/Banner'
 import Blog from '@/sections/Blog'
+import NewBanner from '@/sections/NewBanner'
 import Products from '@/sections/Products'
 import SpecialOffer from '@/sections/SpecialOffer'
 import Testimonial from '@/sections/Testimonial'
@@ -11,8 +12,10 @@ export default function Home() {
     <div className='text-gray-900 '>
 
     
-
-      <Banner></Banner>
+<NewBanner></NewBanner>
+      {/* <Banner></Banner> */}
+      
+  
       <Products></Products>
       <About></About>
       <SpecialOffer></SpecialOffer>
