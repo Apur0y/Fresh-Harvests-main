@@ -10,11 +10,12 @@ import { useRouter } from 'next/navigation';
 
 interface LoginProps {
   setView: React.Dispatch<React.SetStateAction<boolean>>;
+    closeModal: () => void;
 }
 
 
 
-export default function Register({ setView }: LoginProps) {
+export default function Register({ setView, closeModal }: LoginProps) {
 
   const router=useRouter();
     const [userData, setFormData] = useState({
@@ -44,6 +45,7 @@ export default function Register({ setView }: LoginProps) {
         router.push("/")
         toast.success(response.message || 'Registration successful!');
         // Redirect to login or dashboard
+        closeModal()
       } else {
         toast.error(response.message || 'Registration failed');
       }

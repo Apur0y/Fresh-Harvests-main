@@ -7,9 +7,10 @@ import { FcGoogle } from "react-icons/fc";
 
 interface LoginProps {
   setView: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: () => void;
 }
 
-export default function Login({ setView }: LoginProps) {
+export default function Login({ setView, closeModal }: LoginProps) {
 const route=useRouter()
   
   const [formData, setFormData] = useState({
@@ -38,6 +39,7 @@ const route=useRouter()
         // Store token
         localStorage.setItem("token", response.data.token);
         // Redirect or update state
+        closeModal();
       } else {
         toast.error(response.message || "Login failed");
       }

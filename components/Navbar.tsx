@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import Login from "./Login";
 import Register from "./Register";
 import { TbCloverFilled } from "react-icons/tb";
@@ -8,6 +9,10 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Navbar() {
+  const modalRef = useRef<HTMLDialogElement>(null);
+    const closeModal = () => {
+    modalRef.current?.close();
+  };
   const [view, setView] = useState(true);
 
   const [scrolled, setScrolled] = useState(false);
@@ -127,9 +132,9 @@ export default function Navbar() {
             </button>
           </form>
           {view ? (
-            <Login setView={setView}></Login>
+            <Login setView={setView}  closeModal={closeModal}></Login>
           ) : (
-            <Register setView={setView}></Register>
+            <Register setView={setView}  closeModal={closeModal}></Register>
           )}
         </div>
       </dialog>
