@@ -35,6 +35,7 @@ export default function Products() {
 
   const { data: pro } = useGetProductsQuery({});
   const { data, isLoading } = useGetCategoryQuery({});
+  console.log(pro);
 
   useEffect(() => {
     if (data?.data) {
@@ -44,6 +45,7 @@ export default function Products() {
     if (pro?.data) {
       setProducts(pro.data);
       setfiltered(pro.data);
+      console.log(pro.data);
     }
   }, [data, pro]);
 
@@ -59,7 +61,7 @@ export default function Products() {
     } else {
       setfiltered(products.filter((product) => product.categoryId === id));
     }
-    console.log(products);
+    console.log("My produts",products);
   };
 
   return (

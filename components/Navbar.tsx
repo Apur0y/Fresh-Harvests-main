@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   const modalRef = useRef<HTMLDialogElement>(null);
+
     const closeModal = () => {
     modalRef.current?.close();
   };
@@ -123,7 +124,7 @@ export default function Navbar() {
 
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
-      <dialog id="my_modal_3" className="modal">
+      <dialog ref={modalRef} id="my_modal_3" className="modal">
         <div className="modal-box bg-white rounded-md  max-w-sm">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}

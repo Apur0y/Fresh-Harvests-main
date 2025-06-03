@@ -52,6 +52,7 @@ export default function SingleProduct({ params }: PageProps) {
   useEffect(() => {
     if (productData?.data) {
       setProduct(productData.data);
+      console.log(productData);
     }
     if (data?.data) {
       setCategory(data.data);

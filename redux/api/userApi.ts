@@ -12,7 +12,7 @@ export const userApi = baseApi.injectEndpoints({
     }),
     registerUser: build.mutation({
       query: (userData) => ({
-        url: "api/v1/users/register",
+        url: "api/v1/users",
         method: "POST",
         data: userData
       }),
