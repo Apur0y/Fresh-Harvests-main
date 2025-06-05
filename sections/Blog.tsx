@@ -37,7 +37,7 @@ export default function Blog() {
         </p>
       </div>
 
-      <div className="flex justify-between flex-wrap gap-6">
+      <div className="flex justify-center flex-wrap items-center gap-6">
         {blogs.map((blog) => (
           <BlogCard key={blog.title} blog={blog}></BlogCard>
         ))}

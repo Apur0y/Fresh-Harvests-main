@@ -10,10 +10,7 @@ interface AxiosBaseQueryArgs {
   contentType?: string;
 }
 
-export const axiosBaseQuery =
-  (
-    { baseUrl }: { baseUrl: string } = { baseUrl: "" }
-  ): BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> =>
+export const axiosBaseQuery =({ baseUrl }: { baseUrl: string } = { baseUrl: "" }): BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> =>
   async ({ url, method = "GET", data, params, headers, contentType }) => {
     try {
       const config: AxiosRequestConfig = {
