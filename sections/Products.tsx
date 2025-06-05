@@ -36,6 +36,7 @@ export default function Products() {
   const { data: pro } = useGetProductsQuery({});
   const { data, isLoading } = useGetCategoryQuery({});
   console.log(pro);
+  console.log(data);
 
   useEffect(() => {
     if (data?.data) {
