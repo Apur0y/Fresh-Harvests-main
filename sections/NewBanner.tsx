@@ -38,7 +38,7 @@ export default function NewBanner() {
              </div>
 
           {/* Right Column - Image */}
-          <div className="absolute right-0 -top-7 w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+          {/* <div className="absolute right-0 -top-7 w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
             <div className="relative w-full md:w-[750]  md:h-[850px]">
               <Image 
                 src="/photo01.png" 
@@ -48,11 +48,25 @@ export default function NewBanner() {
                 priority
               />
             </div>
-          </div>
+          </div> */}
+     
+
+
         </div>
       </div>
 
       {/* Overlay for better text readability */}
+           <div className="absolute right-0 bottom-0">
+            <div className=" w-[20px] md:w-[750px]  md:h-[850px]">
+              <Image 
+                src="/photo01.png" 
+                alt="Happy customer"
+                fill
+                className="object-contain "
+                
+              />
+            </div>
+          </div>
 
     </div>
   )
