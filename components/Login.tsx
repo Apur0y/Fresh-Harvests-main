@@ -1,4 +1,4 @@
-import {  useLoginUserMutation } from "@/redux/api/authApi";
+import {  useGetUserProfileQuery, useLoginUserMutation } from "@/redux/api/authApi";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -18,7 +18,10 @@ const route=useRouter()
     email: "",
     password: "",
   });
+
+
   const [login] = useLoginUserMutation();
+  const { data, isLoading, error, refetch } = useGetUserProfileQuery({});
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +46,8 @@ const route=useRouter()
         
         // Redirect or update state
         closeModal();
+
+        refetch();
       } else {
         toast.error(response.message || "Login failed");
       }

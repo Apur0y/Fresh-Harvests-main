@@ -12,5 +12,6 @@ export const baseApi = createApi({
   baseQuery: axiosBaseQuery({
     baseUrl,
   }),
+    tagTypes: ['UserProfile'], 
   endpoints: () => ({})
 });

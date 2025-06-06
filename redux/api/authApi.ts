@@ -8,7 +8,7 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
         data:loginData
       }),
-      
+       invalidatesTags: ['UserProfile'], 
     }),
 
     getUserProfile: build.query({
@@ -19,7 +19,7 @@ export const authApi = baseApi.injectEndpoints({
       'Authorization': localStorage.getItem('token')
     }
       }),
-      
+       providesTags: ['UserProfile' ],
     }),
      changePassword: build.mutation({
       query: (passwordData) => ({
