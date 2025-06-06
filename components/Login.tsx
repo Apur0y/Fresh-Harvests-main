@@ -1,4 +1,4 @@
-import { useLoginUserMutation } from "@/redux/api/authApi";
+import {  useLoginUserMutation } from "@/redux/api/authApi";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -19,6 +19,7 @@ const route=useRouter()
   });
   const [login] = useLoginUserMutation();
 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -38,6 +39,7 @@ const route=useRouter()
         toast.success(response.message);
         // Store token
         localStorage.setItem("token", response.data.token);
+
         // Redirect or update state
         closeModal();
       } else {

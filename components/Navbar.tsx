@@ -8,14 +8,22 @@ import { TbCloverFilled } from "react-icons/tb";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
 import { useGetUserProfileQuery } from "@/redux/api/authApi";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const [user,setUser]=useState()
+  type UserProfile = {
+    data?: {
+      email?: string;
+    };
+   
+  };
+
+  const [user, setUser] = useState<UserProfile | null>(null);
  
 
-  const {data} =useGetUserProfileQuery({});
-  console.log(user,"Here is user");
+  const {data,refetch} =useGetUserProfileQuery({});
+
 
   const [view, setView] = useState(true);
 
@@ -39,9 +47,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [data]);
 
-
+const Logout=async()=>{
+  localStorage.removeItem('token')
+  setUser(null);
+  await refetch()
+  toast.success("Log Out Successful!")
+}
 
   return (
     <div className={`navbar z-50 fixed w-full md:px-14 transition-all duration-300 ${
@@ -119,7 +132,54 @@ export default function Navbar() {
           </div>
         </div>
 
-        <button
+        <div>
+
+          {
+            user?(<>
+           <div className="relative group">
+  {/* Profile button */}
+  <button className="flex items-center gap-2 focus:outline-none">
+    {/* User icon */}
+    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 text-blue-600"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </div>
+    
+    {/* Email - hidden on mobile */}
+    <span className="hidden md:inline text-sm font-medium text-gray-700 truncate max-w-[160px]">
+      {user?.data?.email}
+    </span>
+  </button>
+
+  {/* Dropdown menu */}
+  <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+    <div className="py-1">
+      {/* User email in dropdown */}
+      <div className="px-4 py-2 text-sm text-gray-700 border-b">
+        <p className="truncate font-medium">{user?.data?.email}</p>
+      </div>
+      
+      {/* Logout button */}
+      <button
+        onClick={() => Logout()} // Your logout function here
+        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+      >
+        Sign out
+      </button>
+    </div>
+  </div>
+</div>  
+            </>):(  <button
           onClick={() => {
             const modal = document.getElementById(
               "my_modal_3"
@@ -131,7 +191,11 @@ export default function Navbar() {
           className="btn bg-transparent text-gray-800"
         >
           Sign in
-        </button>
+        </button>)
+          }
+        </div>
+
+      
       </div>
 
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
