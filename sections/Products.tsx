@@ -106,7 +106,7 @@ export default function Products() {
 
       <div className="flex flex-wrap justify-center gap-5">
         {filtered.length > 0 ? (
-          filtered.slice(0,8).map((product) => (
+          filtered.slice(11,19).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))
         ) : (

@@ -9,7 +9,7 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div className='text-gray-900 '>
+    <div className='text-gray-900 scroll-smooth'>
 
     
 <NewBanner></NewBanner>

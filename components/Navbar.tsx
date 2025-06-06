@@ -7,18 +7,28 @@ import Register from "./Register";
 import { TbCloverFilled } from "react-icons/tb";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
+import { useGetUserProfileQuery } from "@/redux/api/authApi";
 
 export default function Navbar() {
   const modalRef = useRef<HTMLDialogElement>(null);
+  const [user,setUser]=useState()
+ 
 
-    const closeModal = () => {
-    modalRef.current?.close();
-  };
+  const {data} =useGetUserProfileQuery({});
+  console.log(user,"Here is user");
+
   const [view, setView] = useState(true);
 
   const [scrolled, setScrolled] = useState(false);
 
+      const closeModal = () => {
+    modalRef.current?.close();
+  };
+
   useEffect(() => {
+    if(data){
+      setUser(data)
+    }
     const handleScroll = () => {
     
       setScrolled(window.scrollY > 50);
@@ -30,6 +40,8 @@ export default function Navbar() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+
 
   return (
     <div className={`navbar z-50 fixed w-full md:px-14 transition-all duration-300 ${

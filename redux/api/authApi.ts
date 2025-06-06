@@ -12,12 +12,18 @@ export const authApi = baseApi.injectEndpoints({
     }),
 
     getUserProfile: build.query({
-      query: () => ({
-        url: "api/v1/auth/profile",
-        method: "GET",
-      }),
-      
-    }),
+  query: () => {
+    const token = localStorage.getItem("token");
+    return {
+      url: "api/v1/auth/profile",
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`, // important!
+      },
+    };
+  },
+}),
+
      changePassword: build.mutation({
       query: (passwordData) => ({
         url: `api/v1/auth/change-password`,
