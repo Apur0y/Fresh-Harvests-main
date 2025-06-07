@@ -1,9 +1,11 @@
-import {  useGetUserProfileQuery, useLoginUserMutation } from "@/redux/api/authApi";
+import {   useLoginUserMutation } from "@/redux/api/authApi";
+// import { setToken } from "@/redux/feature/userSlice";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
+// import { useDispatch } from "react-redux";
 
 interface LoginProps {
   setView: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +23,9 @@ const route=useRouter()
 
 
   const [login] = useLoginUserMutation();
-  const { data, isLoading, error, refetch } = useGetUserProfileQuery({});
+  // const {  refetch } = useGetUserProfileQuery({});
+  // const dispatch=useDispatch();
+
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,13 +45,14 @@ const route=useRouter()
       if (response.success) {
      route.push('/')
         toast.success(response.message);
-        // Store token
         localStorage.setItem("token", response.data.token);
-        
-        // Redirect or update state
-        closeModal();
 
-        refetch();
+        // dispatch(setToken(response.data.token))
+        // Redirect or update state
+           // refetch();
+        closeModal();
+         window.location.reload()
+     
       } else {
         toast.error(response.message || "Login failed");
       }

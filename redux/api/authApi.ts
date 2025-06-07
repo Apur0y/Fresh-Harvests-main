@@ -15,11 +15,8 @@ export const authApi = baseApi.injectEndpoints({
       query: () => ({
         url: "api/v1/auth/profile",
         method: "GET",
-         headers: {
-      'Authorization': localStorage.getItem('token')
-    }
       }),
-       providesTags: ['UserProfile' ],
+       providesTags: ['UserProfile'],
     }),
      changePassword: build.mutation({
       query: (passwordData) => ({

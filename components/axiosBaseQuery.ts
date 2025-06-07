@@ -13,12 +13,13 @@ interface AxiosBaseQueryArgs {
 export const axiosBaseQuery =({ baseUrl }: { baseUrl: string } = { baseUrl: "" }): BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> =>
   async ({ url, method = "GET", data, params, headers, contentType }) => {
     try {
+       const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
       const config: AxiosRequestConfig = {
         url: baseUrl + url,
         method,
         data,
         params,
-        headers: {
+        headers: token?  { 'Authorization': `${token}` } : {
           ...(headers ?? {}),
           "Content-Type": contentType ?? "application/json",
         },
